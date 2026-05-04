@@ -1,0 +1,39 @@
+<div class="ugc-sec">
+  <p class="ugc-title">Going Viral Every Day 📱</p>
+  <p class="ugc-sub">Real customers. Real content. Real results.</p>
+  <div class="ugc-grid">
+    {%- for block in section.blocks -%}
+      <div class="ugc-card">
+        <div class="ugc-bg">{{ block.settings.emoji }}</div>
+        <div class="ugc-play">▶</div>
+        <div class="ugc-overlay">
+          <div class="ugc-badge">{{ block.settings.badge }}</div>
+          <div class="ugc-views">{{ block.settings.views }}</div>
+          <div class="ugc-name">{{ block.settings.handle }}</div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="viral-strip">
+    <span class="vb">🎵 {{ section.settings.stat_1 }}</span>
+    <span class="vb">📸 {{ section.settings.stat_2 }}</span>
+    <span class="vb">❤️ {{ section.settings.stat_3 }}</span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "UGC Wall",
+  "blocks": [{"type":"video_card","name":"Video Card","settings":[
+    {"type":"text","id":"emoji","label":"Emoji","default":"🪼"},
+    {"type":"text","id":"badge","label":"Badge","default":"🔥 TRENDING"},
+    {"type":"text","id":"views","label":"Views","default":"2.4M views"},
+    {"type":"text","id":"handle","label":"Handle","default":"@jellyflow.fan"}
+  ]}],
+  "settings": [
+    {"type":"text","id":"stat_1","label":"Stat 1","default":"5M+ TikTok views"},
+    {"type":"text","id":"stat_2","label":"Stat 2","default":"50K+ Instagram posts"},
+    {"type":"text","id":"stat_3","label":"Stat 3","default":"10K+ 5-star reviews"}
+  ]
+}
+{% endschema %}
