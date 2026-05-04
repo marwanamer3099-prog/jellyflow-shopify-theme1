@@ -1,0 +1,25 @@
+<div class="testi-sec">
+  <p class="sec-title" style="text-align:center">What People Are Saying 💬</p>
+  <div class="testi-grid">
+    {%- for block in section.blocks -%}
+      <div class="tc">
+        <div class="tc-q">"</div>
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-head">{{ block.settings.heading }}</p>
+        <p class="tc-body">{{ block.settings.body }}</p>
+        <div class="tc-auth">— {{ block.settings.author }} <span class="verified">✓ Verified</span></div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "blocks": [{"type":"review","name":"Review","settings":[
+    {"type":"text","id":"heading","label":"Heading","default":"Game Changer"},
+    {"type":"textarea","id":"body","label":"Review","default":"Absolutely love this lamp!"},
+    {"type":"text","id":"author","label":"Name","default":"Sarah M."}
+  ]}]
+}
+{% endschema %}
