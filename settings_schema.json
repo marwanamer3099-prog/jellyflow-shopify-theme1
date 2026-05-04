@@ -1,0 +1,32 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "JellyFlow",
+    "theme_version": "1.0.0",
+    "theme_author": "JellyFlow Store"
+  },
+  {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#7c3aed"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color",
+        "default": "#ec4899"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {"type":"url","id":"tiktok_url","label":"TikTok URL"},
+      {"type":"url","id":"instagram_url","label":"Instagram URL"}
+    ]
+  }
+]
