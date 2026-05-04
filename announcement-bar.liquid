@@ -1,0 +1,17 @@
+<div class="topbar">
+  🪼 {{ section.settings.message }}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Free Worldwide Shipping — Order Now & Save 50%!"
+    }
+  ]
+}
+{% endschema %}
