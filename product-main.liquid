@@ -1,0 +1,77 @@
+<div class="prod-wrap">
+  <div class="prod-imgs">
+    <div class="main-img" id="main-img">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | img_url: '600x600' }}" alt="{{ product.title }}">
+      {%- else -%}🪼{%- endif -%}
+    </div>
+    <div class="thumbs">
+      {%- for image in product.images limit:3 -%}
+        <div class="thumb{% if forloop.first %} act{% endif %}"
+          onclick="setImg('{{ image | img_url: "600x600" }}', this)">
+          <img src="{{ image | img_url: '120x120' }}" alt="{{ product.title }}">
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="prod-info">
+    <p class="prod-title">{{ product.title }}</p>
+    <ul class="bullets">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'bullet' -%}
+          <li>{{ block.settings.text }}</li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+    <div class="stars-row">
+      <span class="stars">★★★★★</span>
+      <span class="rc">({{ section.settings.review_count }}+ Reviews)</span>
+    </div>
+    <div class="price-row">
+      <span class="price">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <span class="price-og">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+    </div>
+    <div class="qty-row">
+      <span class="qty-lbl">Quantity</span>
+      <div class="qty-ctrl">
+        <button class="qb" onclick="changeQty(-1)">−</button>
+        <span class="qn" id="qty-display">1</span>
+        <button class="qb" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="quantity" id="qty-hidden" value="1">
+      <button type="submit" class="btn-cart">🛒 ADD TO CART — FREE SHIPPING</button>
+    </form>
+    <p class="secure-lbl">🔒 SECURE CHECKOUT WITH</p>
+    <div class="pay-row">
+      <span class="pay-b">VISA</span>
+      <span class="pay-b">Mastercard</span>
+      <span class="pay-b">AMEX</span>
+      <span class="pay-b">Apple Pay</span>
+      <span class="pay-b">PayPal</span>
+    </div>
+    <div class="timeline">
+      <div class="tl-step"><div class="tl-ic">🛒</div><div class="tl-date">Today</div><div class="tl-lbl">Ordered</div></div>
+      <div class="tl-line"></div>
+      <div class="tl-step"><div class="tl-ic">📦</div><div class="tl-date">{{ section.settings.ship_date }}</div><div class="tl-lbl">Ships Out</div></div>
+      <div class="tl-line"></div>
+      <div class="tl-step"><div class="tl-ic">🎁</div><div class="tl-date">{{ section.settings.delivery_date }}</div><div class="tl-lbl">Delivered</div></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Main",
+  "blocks": [{"type":"bullet","name":"Bullet Point","settings":[{"type":"text","id":"text","label":"Text","default":"Feature goes here"}]}],
+  "settings": [
+    {"type":"text","id":"review_count","label":"Review Count","default":"3,412"},
+    {"type":"text","id":"ship_date","label":"Ship Date","default":"May 5-6"},
+    {"type":"text","id":"delivery_date","label":"Delivery Date","default":"May 13-14"}
+  ]
+}
+{% endschema %}
