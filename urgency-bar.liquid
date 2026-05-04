@@ -1,0 +1,29 @@
+<div class="urgency-bar">
+  <div class="stock-alert">
+    <div class="stock-dots">
+      {%- for i in (1..10) -%}
+        <div class="sd{% if i <= 7 %} filled{% endif %}"></div>
+      {%- endfor -%}
+    </div>
+    <span>Only <strong id="stock-num" class="stock-red">{{ section.settings.stock_left }}</strong> left!</span>
+  </div>
+  <div class="countdown-wrap">
+    <span class="countdown-label">Sale ends in:</span>
+    <div class="cd-blocks">
+      <div class="cd-block"><span class="cd-num" id="cd-h">02</span><span class="cd-unit">hrs</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-m">47</span><span class="cd-unit">min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-s">33</span><span class="cd-unit">sec</span></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Urgency Bar",
+  "settings": [
+    {"type":"range","id":"stock_left","min":1,"max":20,"step":1,"label":"Stock Left","default":4}
+  ]
+}
+{% endschema %}
