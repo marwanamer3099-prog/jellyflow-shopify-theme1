@@ -1,0 +1,23 @@
+<div class="feat-sec">
+  <p class="sec-title" style="color:#fff;text-align:center">What Makes It Special ✨</p>
+  <div class="feat-grid">
+    {%- for block in section.blocks -%}
+      <div class="feat-card">
+        <div class="feat-ic">{{ block.settings.emoji }}</div>
+        <div class="feat-name">{{ block.settings.title }}</div>
+        <div class="feat-desc">{{ block.settings.desc }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Features Grid",
+  "blocks": [{"type":"feature","name":"Feature Card","settings":[
+    {"type":"text","id":"emoji","label":"Emoji","default":"🔮"},
+    {"type":"text","id":"title","label":"Title","default":"Magnetic Float"},
+    {"type":"textarea","id":"desc","label":"Description","default":"Levitates using magnetic field technology"}
+  ]}]
+}
+{% endschema %}
