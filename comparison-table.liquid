@@ -1,0 +1,28 @@
+<div class="why-sec">
+  <p class="sec-title" style="text-align:center">Why JellyFlow™?</p>
+  <div class="cmp-table">
+    <div class="cmp-hdr">
+      <div class="ch">Feature</div>
+      <div class="ch">JellyFlow™</div>
+      <div class="ch">Others</div>
+    </div>
+    {%- for block in section.blocks -%}
+      <div class="cmp-row{% if forloop.odd %} hi{% endif %}">
+        <div class="cc">{{ block.settings.feature }}</div>
+        <div class="cc"><span class="{% if block.settings.us_has %}ck{% else %}cx{% endif %}">{% if block.settings.us_has %}✓{% else %}✗{% endif %}</span></div>
+        <div class="cc"><span class="{% if block.settings.them_has %}ck{% else %}cx{% endif %}">{% if block.settings.them_has %}✓{% else %}✗{% endif %}</span></div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "blocks": [{"type":"row","name":"Row","settings":[
+    {"type":"text","id":"feature","label":"Feature","default":"Magnetic Levitation"},
+    {"type":"checkbox","id":"us_has","label":"We have this?","default":true},
+    {"type":"checkbox","id":"them_has","label":"Others have this?","default":false}
+  ]}]
+}
+{% endschema %}
