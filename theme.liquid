@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }} — {{ shop.name }}</title>
+  {{ content_for_header }}
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  {{ 'jellyflow.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+  {%- sections 'announcement-bar' -%}
+  {%- sections 'ticker-bar' -%}
+  <main>{{ content_for_layout }}</main>
+  {%- sections 'sticky-atc' -%}
+  {%- sections 'footer' -%}
+  <script src="{{ 'jellyflow.js' | asset_url }}" defer></script>
+</body>
+</html>
