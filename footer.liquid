@@ -1,0 +1,40 @@
+<footer>
+  <div class="ft-grid">
+    <div class="ft-col">
+      <h4>{{ shop.name }}</h4>
+      <p>{{ section.settings.tagline }}</p>
+    </div>
+    <div class="ft-col">
+      <h4>Quick Links</h4>
+      <a class="ft-link" href="/policies/terms-of-service">Terms of Service</a>
+      <a class="ft-link" href="/policies/privacy-policy">Privacy Policy</a>
+      <a class="ft-link" href="/policies/refund-policy">Refund Policy</a>
+      <a class="ft-link" href="/policies/shipping-policy">Shipping Policy</a>
+      <a class="ft-link" href="/pages/contact">Contact Us</a>
+    </div>
+    <div class="ft-col">
+      <h4>Get 10% Off</h4>
+      <form action="/contact#contact_form" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="customer">
+        <input class="ft-input" type="email" name="contact[email]" placeholder="your@email.com">
+        <button type="submit" class="ft-signup">Subscribe ✨</button>
+      </form>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span class="ft-copy">© {{ 'now' | date: '%Y' }}, {{ shop.name }}.</span>
+    <div class="ft-pays">
+      <span class="fp">VISA</span><span class="fp">MC</span>
+      <span class="fp">AMEX</span><span class="fp">APPLE PAY</span><span class="fp">PAYPAL</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {"type":"textarea","id":"tagline","label":"Tagline","default":"Bringing living light art into your home. Free worldwide shipping."}
+  ]
+}
+{% endschema %}
