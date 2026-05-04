@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "urgency": { "type": "urgency-bar" },
+    "hero": { "type": "hero" },
+    "bundle": { "type": "bundle-picker" },
+    "product": { "type": "product-main" },
+    "ugc": { "type": "ugc-wall" },
+    "comparison": { "type": "comparison-table" },
+    "features": { "type": "features-grid" },
+    "testimonials": { "type": "testimonials" }
+  },
+  "order": [
+    "urgency","hero","bundle","product",
+    "ugc","comparison","features","testimonials"
+  ]
+}
