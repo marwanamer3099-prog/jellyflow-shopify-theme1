@@ -1,0 +1,47 @@
+<div class="bundle-sec" id="bundle-sec">
+  <p class="sec-title">Choose Your Bundle 🎁</p>
+  <p class="sec-sub">Stack the savings — perfect for gifting</p>
+  <div class="bundle-grid">
+    <div class="bc" onclick="selectBundle(this,'{{ section.settings.price_1 }}')">
+      <div class="bc-emoji">🪼</div>
+      <div class="bc-qty">{{ section.settings.qty_1 }}</div>
+      <div class="bc-save">{{ section.settings.save_1 }}</div>
+      <div class="bc-price">{{ section.settings.price_1 }}</div>
+      <div class="bc-og">{{ section.settings.og_1 }}</div>
+    </div>
+    <div class="bc best sel" onclick="selectBundle(this,'{{ section.settings.price_2 }}')">
+      <div class="bc-emoji">🪼🪼</div>
+      <div class="bc-qty">{{ section.settings.qty_2 }}</div>
+      <div class="bc-save">{{ section.settings.save_2 }}</div>
+      <div class="bc-price">{{ section.settings.price_2 }}</div>
+      <div class="bc-og">{{ section.settings.og_2 }}</div>
+    </div>
+    <div class="bc" onclick="selectBundle(this,'{{ section.settings.price_3 }}')">
+      <div class="bc-emoji">🪼🪼🪼</div>
+      <div class="bc-qty">{{ section.settings.qty_3 }}</div>
+      <div class="bc-save">{{ section.settings.save_3 }}</div>
+      <div class="bc-price">{{ section.settings.price_3 }}</div>
+      <div class="bc-og">{{ section.settings.og_3 }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bundle Picker",
+  "settings": [
+    {"type":"text","id":"qty_1","label":"Bundle 1 Name","default":"1 Lamp"},
+    {"type":"text","id":"save_1","label":"Bundle 1 Save","default":"Save 40%"},
+    {"type":"text","id":"price_1","label":"Bundle 1 Price","default":"$39.99"},
+    {"type":"text","id":"og_1","label":"Bundle 1 Original","default":"$69.99"},
+    {"type":"text","id":"qty_2","label":"Bundle 2 Name","default":"2 Lamps"},
+    {"type":"text","id":"save_2","label":"Bundle 2 Save","default":"Save 50%"},
+    {"type":"text","id":"price_2","label":"Bundle 2 Price","default":"$69.99"},
+    {"type":"text","id":"og_2","label":"Bundle 2 Original","default":"$139.99"},
+    {"type":"text","id":"qty_3","label":"Bundle 3 Name","default":"3 Lamps"},
+    {"type":"text","id":"save_3","label":"Bundle 3 Save","default":"Save 60%"},
+    {"type":"text","id":"price_3","label":"Bundle 3 Price","default":"$89.99"},
+    {"type":"text","id":"og_3","label":"Bundle 3 Original","default":"$209.99"}
+  ]
+}
+{% endschema %}
